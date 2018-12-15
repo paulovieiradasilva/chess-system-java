@@ -39,12 +39,22 @@ public class Board {
 	}
 	
 	/**
-	 * 
+	 * Returns the position of the part
 	 * @param position
 	 * @return
 	 */
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
+	}
+	
+	/**
+	 * Placing pieces on the board
+	 * @param piece
+	 * @param position
+	 */
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position;
 	}
 
 }
