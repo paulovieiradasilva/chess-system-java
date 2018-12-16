@@ -16,6 +16,32 @@ public class ChessMatch {
 	}
 
 	/**
+	 * 
+	 * @return
+	 */
+	public ChessPiece[][] getPieces() {
+		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
+		for (int i = 0; i < board.getRows(); i++) {
+			for (int j = 0; j < board.getColumns(); j++) {
+				mat[i][j] = (ChessPiece) board.piece(i, j);
+			}
+		}
+		return mat;
+	}
+
+	/**
+	 * Check for possible movement given a position
+	 * 
+	 * @param sourcePosition
+	 * @return
+	 */
+	public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+
+	/**
 	 * Moves a part from the original position to the target position Validate
 	 * position
 	 * 
@@ -82,20 +108,6 @@ public class ChessMatch {
 	 */
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public ChessPiece[][] getPieces() {
-		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
-		for (int i = 0; i < board.getRows(); i++) {
-			for (int j = 0; j < board.getColumns(); j++) {
-				mat[i][j] = (ChessPiece) board.piece(i, j);
-			}
-		}
-		return mat;
 	}
 
 	/**
