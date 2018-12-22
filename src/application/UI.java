@@ -69,9 +69,13 @@ public class UI {
 		System.out.println();
 		System.out.println("Turn : " + chessMate.getTrun());
 		System.out.println("Waiting player : " + chessMate.getCurrentPlayer());
-		
-		if (chessMate.getCheck()) {
-			System.out.println("CHECK!");
+		if (!chessMate.getCheckMate()) {
+			if (chessMate.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		} else {
+			System.out.println("CHECKMATE!");
+			System.out.println("Winner: " + chessMate.getCurrentPlayer());
 		}
 	}
 
@@ -122,7 +126,7 @@ public class UI {
 			System.out.print("-" + ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
-				System.out.print(ANSI_BLUE+ piece + ANSI_RESET);
+				System.out.print(ANSI_CYAN + piece + ANSI_RESET);
 			} else {
 				System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
 			}
