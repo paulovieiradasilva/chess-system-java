@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import chess.ChessException;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -55,6 +56,18 @@ public class UI {
 	}
 
 	/**
+	 * Prints the game on the console
+	 * 
+	 * @param chessMate
+	 */
+	public static void printMatch(ChessMatch chessMate) {
+		printBoard(chessMate.getPieces());
+		System.out.println();
+		System.out.println("Turn : " + chessMate.getTrun());
+		System.out.println("Waiting player : " + chessMate.getCurrentPlayer());
+	}
+
+	/**
 	 * Prints a chessboard
 	 * 
 	 * @param pieces
@@ -71,7 +84,7 @@ public class UI {
 	}
 
 	/**
-	 * Prints a chessboard and possilbe moves
+	 * Prints a chessboard and possible moves
 	 * 
 	 * @param pieces
 	 * @param possibleMoves
