@@ -69,6 +69,10 @@ public class UI {
 		System.out.println();
 		System.out.println("Turn : " + chessMate.getTrun());
 		System.out.println("Waiting player : " + chessMate.getCurrentPlayer());
+		
+		if (chessMate.getCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 
 	/**
@@ -112,15 +116,15 @@ public class UI {
 	 */
 	private static void printPiece(ChessPiece piece, boolean background) {
 		if (background) {
-			System.out.print(ANSI_BLUE_BACKGROUND);
+			System.out.print(ANSI_WHITE_BACKGROUND);
 		}
 		if (piece == null) {
 			System.out.print("-" + ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
-				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
+				System.out.print(ANSI_BLUE+ piece + ANSI_RESET);
 			} else {
-				System.out.print(ANSI_RED + piece + ANSI_RESET);
+				System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
 			}
 		}
 		System.out.print(" ");
